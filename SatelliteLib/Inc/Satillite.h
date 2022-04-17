@@ -40,13 +40,13 @@ typedef enum
 	SPI = 3,
 } Satellite_Interfaces;
 
-namespace SatiliteLib {
+namespace SatilliteLib {
 
-class Satilite {
+class Satillite {
 private:
 	std::map<uint8_t, void*> _devices;
 public:
-	Satilite();
+	Satillite();
 
 #ifdef HAL_I2C_MODULE_ENABLED
 	void AddI2CBus(I2C_HandleTypeDef *hi2c);
@@ -61,7 +61,7 @@ public:
 #endif
 
 	void ScanPeriphery();
-	virtual ~Satilite();
+	virtual ~Satillite();
 };
 
 }

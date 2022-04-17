@@ -7,7 +7,7 @@
 
 #include <Inteface.h>
 
-namespace SatiliteLib {
+namespace SatilliteLib {
 
 Inteface::Inteface(void *inteface)
 {

@@ -8,7 +8,7 @@
 #include <I2CInteface.h>
 #ifdef __I2C_enabled
 
-namespace SatiliteLib {
+namespace SatilliteLib {
 
 I2CInteface::I2CInteface(I2C_HandleTypeDef *interface, uint8_t address) : Inteface(interface)
 {

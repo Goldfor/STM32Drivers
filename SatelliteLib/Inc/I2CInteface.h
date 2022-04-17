@@ -4,7 +4,7 @@
  *  Created on: Apr 16, 2022
  *      Author: Almaz
  */
-#include "Satilite.h"
+#include <Satillite.h>
 #ifdef __I2C_enabled
 
 #ifndef I2CDEVICE_H_
@@ -19,7 +19,7 @@
 #endif
 
 
-namespace SatiliteLib {
+namespace SatilliteLib {
 
 class I2CInteface: public Inteface {
 private:

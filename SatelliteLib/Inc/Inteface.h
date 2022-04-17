@@ -13,7 +13,7 @@
 #include <vector>
 #include <map>
 
-namespace SatiliteLib {
+namespace SatilliteLib {
 
 class Inteface {
 protected:
