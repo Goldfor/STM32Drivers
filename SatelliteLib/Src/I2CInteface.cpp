@@ -15,14 +15,28 @@ I2CInteface::I2CInteface(I2C_HandleTypeDef *interface, uint8_t address) : Intefa
 	_address = address;
 }
 
-void I2CInteface::SendRawData(uint8_t *data, uint32_t length)
+void I2CInteface::_SendRawData(uint8_t *data, uint32_t size)
 {
-	HAL_I2C_Master_Transmit(_interface, _address << 1, data, length, 100);
+	HAL_I2C_Master_Transmit(_interface, _address << 1, data, size, 100);
 }
 
-void I2CInteface::SendAddressedData(uint8_t address, uint8_t *data, uint32_t length)
+void I2CInteface::_SendAddressedData(uint8_t address, uint8_t *data, uint32_t size)
 {
-	HAL_I2C_Mem_Write(_interface, _address, address, 1, data, length, 100);
+	HAL_I2C_Mem_Write(_interface, _address, address, 1, data, size, 100);
+}
+
+void I2CInteface::_ReadRawData(uint8_t *data, uint32_t size)
+{
+	HAL_I2C_Master_Receive(_interface, _address << 1, data, size, 100);
+//	for (uint32_t i = 0; i < size; i++)
+//	{
+//		data[i] = i;
+//	}
+}
+
+void I2CInteface::_ReadAddressedData(uint8_t address, uint8_t *data, uint32_t size)
+{
+	HAL_I2C_Mem_Read(_interface, _address, address, 1, data, size, 100);
 }
 
 I2CInteface::~I2CInteface()

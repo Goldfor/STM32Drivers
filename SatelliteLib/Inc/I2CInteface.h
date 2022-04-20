@@ -25,10 +25,13 @@ class I2CInteface: public Inteface {
 private:
 	I2C_HandleTypeDef *_interface;
 	uint8_t _address;
+protected:
+	void _SendRawData(uint8_t *data, uint32_t length) override;
+	void _SendAddressedData(uint8_t address, uint8_t *data, uint32_t length) override;
+	void _ReadRawData(uint8_t *data, uint32_t length) override;
+	void _ReadAddressedData(uint8_t address, uint8_t *data, uint32_t length) override;
 public:
 	I2CInteface(I2C_HandleTypeDef *interface, uint8_t address);
-	void SendRawData(uint8_t *data, uint32_t length) override;
-	void SendAddressedData(uint8_t address, uint8_t *data, uint32_t length) override;
 	virtual ~I2CInteface();
 };
 

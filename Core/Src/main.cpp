@@ -17,7 +17,6 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <Satillite.h>
 #include "main.h"
 #include "i2c.h"
 #include "usart.h"
@@ -25,7 +24,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <Satillite.h>
+#include <I2CInteface.h>
+#include <map>
 
 /* USER CODE END Includes */
 
@@ -93,6 +94,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+  I2CInteface a(NULL, 0x00);
 
   /* USER CODE END 2 */
 
@@ -100,6 +102,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+//	  std::map<uint8_t, std::vector<uint8_t>> data;
+//	  a.SendAddressedData(data);
+//	  data.clear();
+	  HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
