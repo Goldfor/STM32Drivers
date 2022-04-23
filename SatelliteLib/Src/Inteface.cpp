@@ -17,11 +17,24 @@ Inteface::Inteface(void *inteface)
 void Inteface::SendRawData(std::vector<uint8_t> data)
 {
 	uint32_t size = data.size();
-	uint8_t *buf = (uint8_t *)malloc(sizeof(uint8_t) * size);
+	uint8_t *buffer = _inBuffer.GetMemory(size);
 
-	_SendRawData(buf, size);
+	for (uint32_t i = 0; i < size; i++)
+		buffer[i] = data[i];
 
-	free(buf);
+	_SendRawData(buffer, size);
+
+}
+
+void Inteface::SendAddressedData(uint8_t address, std::vector<uint8_t> data)
+{
+	uint32_t size = data.size();
+	uint8_t *buffer = _inBuffer.GetMemory(size);
+
+	for (uint32_t i = 0; i < size; i++)
+		buffer[i] = data[i];
+
+	_SendAddressedData(address, buffer, size);
 }
 
 void Inteface::SendAddressedData(std::map<uint8_t, std::vector<uint8_t>> data)
@@ -32,53 +45,42 @@ void Inteface::SendAddressedData(std::map<uint8_t, std::vector<uint8_t>> data)
 	{
 	    SendAddressedData(it->first, it->second);
 	}
-
-}
-
-void Inteface::SendAddressedData(uint8_t address, std::vector<uint8_t> data)
-{
-	uint32_t size = data.size();
-	uint8_t *buf = (uint8_t *)malloc(sizeof(uint8_t) * size);
-
-	_SendAddressedData(address, buf, size);
-
-	free(buf);
 }
 
 std::vector<uint8_t> Inteface::ReadRawData(uint32_t size)
 {
 	std::vector<uint8_t> result;
-	uint8_t *buf = (uint8_t *)malloc(sizeof(uint8_t) * size);
+	uint8_t *buffer = _outBuffer.GetMemory(size);
 
-	_ReadRawData(buf, size);
+	_ReadRawData(buffer, size);
 
 	for (uint32_t i = 0; i < size; i++)
 	{
-		result.push_back(buf[i]);
+		result.push_back(buffer[i]);
 	}
 
-	free(buf);
 	return result;
 }
 
 std::vector<uint8_t> Inteface::ReadAddressedData(uint8_t address, uint32_t size)
 {
 	std::vector<uint8_t> result;
-	uint8_t *buf = (uint8_t *)malloc(sizeof(uint8_t) * size);
+	uint8_t *buffer = _outBuffer.GetMemory(size);
 
-	_ReadAddressedData(address, buf, size);
+	_ReadAddressedData(address, buffer, size);
 
 	for (uint32_t i = 0; i < size; i++)
 	{
-		result.push_back(buf[i]);
+		result.push_back(buffer[i]);
 	}
 
-	free(buf);
 	return result;
 }
 
 Inteface::~Inteface()
 {
+	_inBuffer.clear();
+	_outBuffer.clear();
 }
 
 }

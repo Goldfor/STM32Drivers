@@ -8,14 +8,19 @@
 #ifndef DEVICES_BASE_DEVICE_H_
 #define DEVICES_BASE_DEVICE_H_
 
-#include "stdlib.h"
+#include "stdint.h"
+#include <stdlib.h>
 #include <string>
 #include <vector>
 #include <map>
+#include "MemoryBuffer.h"
 
 namespace SatilliteLib {
 
 class Inteface {
+private:
+	MemoryBuffer _inBuffer;
+	MemoryBuffer _outBuffer;
 protected:
 	void *_inteface;
 	virtual void _SendRawData(uint8_t *data, uint32_t size) = 0;

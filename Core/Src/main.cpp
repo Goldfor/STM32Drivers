@@ -102,9 +102,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//	  std::map<uint8_t, std::vector<uint8_t>> data;
+	  std::map<uint8_t, std::vector<uint8_t>> data;
 //	  a.SendAddressedData(data);
-//	  data.clear();
+	  data.clear();
 	  HAL_Delay(1);
     /* USER CODE END WHILE */
 
