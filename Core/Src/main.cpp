@@ -47,7 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-using namespace SatilliteLib;
+using namespace SatelliteLib;
 
 
 /* USER CODE END PV */

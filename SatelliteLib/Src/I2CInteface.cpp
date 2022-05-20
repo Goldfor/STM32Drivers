@@ -8,9 +8,9 @@
 #include <I2CInteface.h>
 #ifdef __I2C_enabled
 
-namespace SatilliteLib {
+namespace SatelliteLib {
 
-I2CInteface::I2CInteface(I2C_HandleTypeDef *interface, uint8_t address) : Inteface(interface)
+I2CInteface::I2CInteface(I2C_HandleTypeDef* interface, uint8_t address) : Inteface(interface)
 {
 	_address = address;
 }
@@ -28,10 +28,6 @@ void I2CInteface::_SendAddressedData(uint8_t address, uint8_t *data, uint32_t si
 void I2CInteface::_ReadRawData(uint8_t *data, uint32_t size)
 {
 	HAL_I2C_Master_Receive(_interface, _address << 1, data, size, 100);
-//	for (uint32_t i = 0; i < size; i++)
-//	{
-//		data[i] = i;
-//	}
 }
 
 void I2CInteface::_ReadAddressedData(uint8_t address, uint8_t *data, uint32_t size)

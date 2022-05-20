@@ -7,8 +7,8 @@
 #include <Satillite.h>
 #ifdef __I2C_enabled
 
-#ifndef I2CDEVICE_H_
-#define I2CDEVICE_H_
+#ifndef I2C_INTEFACE_H_
+#define I2C_INTEFACE_H_
 
 #include "stdint.h"
 #include <string>
@@ -19,7 +19,7 @@
 #endif
 
 
-namespace SatilliteLib {
+namespace SatelliteLib {
 
 class I2CInteface: public Inteface {
 private:

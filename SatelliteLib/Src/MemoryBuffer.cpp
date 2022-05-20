@@ -7,7 +7,7 @@
 
 #include "MemoryBuffer.h"
 
-namespace SatilliteLib {
+namespace SatelliteLib {
 
 MemoryBuffer::MemoryBuffer()
 {

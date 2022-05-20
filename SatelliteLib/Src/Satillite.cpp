@@ -7,7 +7,7 @@
 
 #include <Satillite.h>
 
-namespace SatilliteLib {
+namespace SatelliteLib {
 
 Satillite::Satillite()
 {

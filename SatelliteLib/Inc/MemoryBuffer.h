@@ -11,7 +11,7 @@
 #include "stdint.h"
 #include <stdlib.h>
 
-namespace SatilliteLib {
+namespace SatelliteLib {
 
 class MemoryBuffer {
 private:

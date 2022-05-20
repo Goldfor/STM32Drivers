@@ -40,7 +40,7 @@ typedef enum
 	SPI = 3,
 } Satellite_Interfaces;
 
-namespace SatilliteLib {
+namespace SatelliteLib {
 
 class Satillite {
 private:
